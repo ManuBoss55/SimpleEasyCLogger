@@ -1,1 +1,1 @@
-# SimpleEasyCLogger-
+# SimpleEasyCLogger
