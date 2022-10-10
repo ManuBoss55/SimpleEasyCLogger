@@ -1,0 +1,104 @@
+Checks: '-*, clang-analyzer-*, cppcoreguidelines-*, readability-identifier-naming'
+CheckOptions:
+
+  # Pointer
+
+  - { key: readability-identifier-naming.PointerParameterCase, value: camelBack}
+  - { key: readability-identifier-naming.PointerParameterCasePrefix, value: p}
+  - { key: readability-identifier-naming.GlobalPointerCase, value: camelBack}
+  - { key: readability-identifier-naming.GlobalPointerCasePrefix, value: p}
+  - { key: readability-identifier-naming.LocalPointerCase, value: camelBack}
+  - { key: readability-identifier-naming.LocalPointerCasePrefix, value: p}
+
+  # Variable
+
+  - { key: readability-identifier-naming.VariableCase, value: camelBack}
+  # - { key: readability-identifier-naming.VariableHungarianPrefix, value: On}
+  - { key: readability-identifier-naming.GlobalVariableCase, value: camelBack}
+  # - { key: readability-identifier-naming.GlobalVariableHungarianPrefix, value: On}
+  - { key: readability-identifier-naming.LocalVariableCase, value: camelBack}
+  # - { key: readability-identifier-naming.LocalVariableHungarianPrefix, value: On}
+  - { key: readability-identifier-naming.StaticVariableCase, value: camelBack}
+  # - { key: readability-identifier-naming.StaticVariableHungarianPrefix, value: On}
+
+  # Function
+
+  - { key: readability-identifier-naming.FunctionCase, value: CamelCase}
+  - { key: readability-identifier-naming.ParameterCase, value: camelBack}
+  
+  # Constant
+
+  - { key: readability-identifier-naming.ConstantCase, value: UPPER_CASE}
+
+  # Macro
+
+  - { key: readability-identifier-naming.MacroDefinitionCaseSuffix, value: UPPER_CASE}
+
+  # Typedef
+
+  - { key: readability-identifier-naming.TypedefCase, value: lower_case}
+  - { key: readability-identifier-naming.TypedefCaseSuffix, value: _t}
+  - { key: readability-identifier-naming.TypedefIgnoredRegexp, value: "[A-Za-z]+Ptr"}
+
+  # Enum
+
+  - { key: readability-identifier-naming.EnumCase, value: lower_case}
+  - { key: readability-identifier-naming.EnumCaseSuffix, value: _t}
+  - { key: readability-identifier-naming.EnumConstantCase, value: UPPER_CASE}
+  
+  # Struct
+
+  - { key: readability-identifier-naming.StructCase, value: lower_case}
+  - { key: readability-identifier-naming.StructCaseSuffix, value: _t}
+  
+  # Class
+
+  - { key: readability-identifier-naming.ClassCase, value: CamelCase}
+  - { key: readability-identifier-naming.ClassPrefix, value: C}
+
+  - { key: readability-identifier-naming.ClassContantCase, value: UPPER_CASE}
+  - { key: readability-identifier-naming.ConstantMemberCase, value: UPPER_CASE}
+  
+  - { key: readability-identifier-naming.MemberCase, value: camelBack}
+  - { key: readability-identifier-naming.ClassMemberCase, value: camelBack}
+
+  - { key: readability-identifier-naming.ClassMethodCase, value: CamelCase}
+  - { key: readability-identifier-naming.VirtualMethodCase, value: CamelCase}
+
+  - { key: readability-identifier-naming.PrivateMemberCase, value: camelBack}
+  - { key: readability-identifier-naming.PrivateMemberPrefix, value: m_}
+  - { key: readability-identifier-naming.PrivateMethodCase, value: CamelCase}
+
+  - { key: readability-identifier-naming.ProtectedMemberCase, value: camelBack}
+  - { key: readability-identifier-naming.ProtectedMemberPrefix, value: m_}
+  - { key: readability-identifier-naming.ProtectedMethodCase, value: CamelCase}
+  
+  - { key: readability-identifier-naming.PublicMemberCase, value: camelBack}
+  - { key: readability-identifier-naming.PublicMemberPrefix, value: m_}
+  - { key: readability-identifier-naming.PublicMethodCase, value: CamelCase}
+
+  # Hungurian
+
+  # - { key: readability-identifier-naming.HungarianNotation.DerivedType.Array, value: v}
+  # - { key: readability-identifier-naming.HungarianNotation.DerivedType.Pointer, value: p}
+  # - { key: readability-identifier-naming.HungarianNotation.DerivedType.FunctionPointer, value: fn}
+  
+  # - { key: readability-identifier-naming.HungarianNotation.CString.CharPrinter, value: s}
+  # - { key: readability-identifier-naming.HungarianNotation.CString.CharArray, value: s}
+  
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.int8_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.int16_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.int32_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.int64_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.uint8_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.uint16_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.uint32_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.uint64_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.char, value: c}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.bool, value: b}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.int, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.float, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.double, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.short, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.size_t, value: n}
+  # - { key: readability-identifier-naming.HungarianNotation.PrimitiveType.long, value: n}

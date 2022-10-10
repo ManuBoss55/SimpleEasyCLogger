@@ -1,0 +1,112 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build SECLogger",
+            "command": "cd ${workspaceFolder}/SECLogger/ && cmake -B ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build -DTARGET_GROUP=Debug && cmake --build ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "Run SECLogger",
+            "command": "${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/bin/Main",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build SECLogger"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Build SECLogger Test",
+            "command": "mkdir -p /tmp/SimpleEasyCLogger && cd ${workspaceFolder}/SECLogger/ && cmake -B ${workspaceFolder}/SECLogger/test/build -DZMQ_BUILD_TESTS=OFF -DWITH_PERF_TOOL=OFF -DTARGET_GROUP=Test && cmake --build ${workspaceFolder}/SECLogger/test/build",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "Run SECLogger Test",
+            "command": "${workspaceFolder}/SECLogger/test/build/bin/SimpleEasyCLogger_Test",
+            "dependsOn": [
+                "Build SECLogger Test"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "Run SECLogger Mock",
+            "command": "${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/bin/MockWS",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build SECLogger Mock"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Clean",
+            "command": "rm -fr ${workspaceFolder}/SECLogger/test/build/ && rm -fr ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "Clean ALL",
+            "command": "rm -fr ${workspaceFolder}/SECLogger/test/build/ && rm -fr ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/ && rm -fr ${workspaceFolder}/dependencies/comm_sys/build/ && rm -fr ${workspaceFolder}/dependencies/libconfig/build/ && rm -fr ${workspaceFolder}/dependencies/libdbmng/build/ && rm -fr ${workspaceFolder}/dependencies/libzmq/build/ && rm -fr ${workspaceFolder}/dependencies/libzmqpp/build/ && rm -fr ${workspaceFolder}/dependencies/Unity/build/",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "C-Cpp Check",
+            "command": "cppcheck --template=gcc --enable=all ./SECLogger/SimpleEasyCLogger/",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build SECLogger"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Valgrind: Memcheck",
+            "command": "valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/bin/Main",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build SECLogger"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Valgrind: Helgrind",
+            "command": "valgrind --tool=helgrind ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/bin/Main",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build SECLogger"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Code Analysis (Log)",
+            "command": "mkdir -p ${workspaceFolder}/SECLogger/SimpleEasyCLogger/analysis_log && cppcheck --template=gcc --enable=all ./SECLogger/SimpleEasyCLogger/ > ./SECLogger/SimpleEasyCLogger/analysis_log/cppcheck-out.log && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=./SECLogger/SimpleEasyCLogger/analysis_log/memcheck-out.log ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/bin/Main && valgrind --tool=helgrind --verbose --log-file=./SECLogger/SimpleEasyCLogger/analysis_log/helgrind-out.log ${workspaceFolder}/SECLogger/SimpleEasyCLogger/build/bin/Main",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build SECLogger"
+            ]
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++-11 compila il file attivo",
+            "command": "/usr/bin/g++-11",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Attività generata dal debugger."
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+BasedOnStyle: Microsoft
+IndentWidth: 4
+ColumnLimit: 0
+AlignConsecutiveAssignments: 'true'
+AlignConsecutiveMacros: 'true'
+AlignAfterOpenBracket: 'Align'
+AlignConsecutiveDeclarations: 'true'
+AllowAllParametersOfDeclarationOnNextLine: 'true'
+ReflowComments: 'false'
+AlignTrailingComments: 'true'
+MaxEmptyLinesToKeep: 1
+SpacesInCStyleCastParentheses: 'true'
