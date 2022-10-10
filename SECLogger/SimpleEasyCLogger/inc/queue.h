@@ -34,12 +34,11 @@ typedef struct{
 
 	bool stop_wait;
 
+	pthread_mutex_t mutex_queue;
+	pthread_mutexattr_t attr_queue;
+	pthread_cond_t cond_queue;
+
 } LogQueue;
-
-
-pthread_mutex_t mutex_queue;
-pthread_mutexattr_t attr_queue;
-pthread_cond_t cond_queue;
 
 LogQueue* InitQueueLogger(LoggerOperationState*);
 void DestroyQueueLogger(LogQueue*, LoggerOperationState*);
